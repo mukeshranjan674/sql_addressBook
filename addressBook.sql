@@ -30,3 +30,7 @@ select * from address_book;
 #UC4
 #Ability to edit the existing person using name
 update address_book set address = 'old town' where first_name = 'nitish' and last_name = 'kumar';
+
+#UC5
+#Ability to delete a person using first and last name
+delete from address_book where first_name = 'nitish' and last_name = 'kumar';
