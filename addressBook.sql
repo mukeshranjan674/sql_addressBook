@@ -34,3 +34,10 @@ update address_book set address = 'old town' where first_name = 'nitish' and las
 #UC5
 #Ability to delete a person using first and last name
 delete from address_book where first_name = 'nitish' and last_name = 'kumar';
+
+#UC6
+#Ability to retrieve a contact person using name of city
+select * from address_book where city = 'dhanbad';
+#Ability to retrieve a contact person using name of state
+select * from address_book where state = 'jharkhand';
+
