@@ -17,3 +17,12 @@ zip varchar(6) not null,
 phone varchar(10) not null,
 email varchar(100) not null
 );
+
+#UC3
+#Ability to insert contact details into the table
+insert into address_book values
+('mukesh', 'ranjan', 'sijua', 'dhanbad', 'jharkhand', '800800', '8989898989', 'm@gmail.com'),
+('nitish', 'kumar', 'new town', 'greater noida', 'uttar pradesh', '100002', '8988898989', 'r@gmail.com'),
+('dev', 'kumar', 'bilaspur', 'raipur', 'chhattisgarh', '402500', '8989895989', 'k@gmail.com');
+#Show table
+select * from address_book;
