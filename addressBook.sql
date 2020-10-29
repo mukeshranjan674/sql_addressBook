@@ -58,9 +58,15 @@ alter table address_book add name VARCHAR(80);
 alter table address_book add type VARCHAR(80) default 'friend';
 insert into address_book values
 ('shri', 'ram', 'ayodhya', 'ayodhya', 'ayodhya', '800800', '8989898989', 'ram@gmail.com', 'sugriv','friend'),
-('krishna', 'kanahiya', 'dwarika', 'dwarika', 'gujrat', '700002', '8988898989', 'krishna@gmail.com', 'arjun', 'disciple'),
-('balram', 'kumar', 'mathura', 'mathura', 'uttar pradesh', '402500', '8989895989', 'balram@gmail.com', 'krihsna', 'brother');
+('krishna', 'kanahiya', 'dwarika', 'dwarika', 'gujrat', '700002', '8988898989', 'krishna@gmail.com', 'arjun', 'friend'),
+('balram', 'kumar', 'mathura', 'mathura', 'uttar pradesh', '402500', '8989895989', 'balram@gmail.com', 'krihsna', 'friend');
 
 #UC10
 #Ability to get number of contact persons
 select type, count(first_name) from address_book group by type;
+
+
+#UC11
+#Ability to add person to both Friend and Family
+insert into address_book values
+('balram', 'kumar', 'mathura', 'mathura', 'uttar pradesh', '402500', '8989895989', 'balram@gmail.com', 'krishna','family');
