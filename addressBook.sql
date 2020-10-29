@@ -45,3 +45,9 @@ select * from address_book where state = 'jharkhand';
 #Ability to get the size of the table address_book by city or state
 select city, count(city) from address_book group by city;
 select state, count(state) from address_book group by state;
+
+#UC8
+#Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+insert into address_book values
+('akash', 'sharma', 'greater sijua', 'dhanbad', 'jharkhand', '800800', '8989898989', 'mr@gmail.com');
+select * from address_book where city = 'dhanbad' order by first_name;
