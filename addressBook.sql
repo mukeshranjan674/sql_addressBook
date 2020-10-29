@@ -26,3 +26,7 @@ insert into address_book values
 ('dev', 'kumar', 'bilaspur', 'raipur', 'chhattisgarh', '402500', '8989895989', 'k@gmail.com');
 #Show table
 select * from address_book;
+
+#UC4
+#Ability to edit the existing person using name
+update address_book set address = 'old town' where first_name = 'nitish' and last_name = 'kumar';
