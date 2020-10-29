@@ -41,3 +41,7 @@ select * from address_book where city = 'dhanbad';
 #Ability to retrieve a contact person using name of state
 select * from address_book where state = 'jharkhand';
 
+#UC7
+#Ability to get the size of the table address_book by city or state
+select city, count(city) from address_book group by city;
+select state, count(state) from address_book group by state;
