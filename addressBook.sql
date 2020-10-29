@@ -51,3 +51,12 @@ select state, count(state) from address_book group by state;
 insert into address_book values
 ('akash', 'sharma', 'greater sijua', 'dhanbad', 'jharkhand', '800800', '8989898989', 'mr@gmail.com');
 select * from address_book where city = 'dhanbad' order by first_name;
+
+#UC9
+#Ability to identify each Address Book with name and type
+alter table address_book add name VARCHAR(80);
+alter table address_book add type VARCHAR(80) default 'friend';
+insert into address_book values
+('shri', 'ram', 'ayodhya', 'ayodhya', 'ayodhya', '800800', '8989898989', 'ram@gmail.com', 'sugriv','friend'),
+('krishna', 'kanahiya', 'dwarika', 'dwarika', 'gujrat', '700002', '8988898989', 'krishna@gmail.com', 'arjun', 'disciple'),
+('balram', 'kumar', 'mathura', 'mathura', 'uttar pradesh', '402500', '8989895989', 'balram@gmail.com', 'krihsna', 'brother');
