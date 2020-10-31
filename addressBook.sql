@@ -169,3 +169,17 @@ insert into contact_details values
 (111, '8989898989', 'ram@gmail.com', 'family'),
 (112, '8989298989', 'shyam@gmail.com', 'family'),
 (113, '8989798989', 'krishna@gmail.com', 'friend');
+
+#UC13
+#Ability to retrieve data as described in UC6, UC7, UC8 and UC10
+select c.first_name, c.last_name, a.phone_no, a.email, a.contact_type, b.address, b.city, b.state, b.zip from 
+contact_details a, person_address b, person c
+where a.contact_id = c.contact_id and a.contact_id = b.contact_id and b.city = 'dhanbad';
+
+select city, count(city) from person_address group by city;
+
+select c.first_name, c.last_name, a.phone_no, a.email, a.contact_type, b.address, b.city, b.state, b.zip from 
+contact_details a, person_address b, person c
+where a.contact_id = c.contact_id and a.contact_id = b.contact_id order by c.first_name;
+
+select contact_type, count(contact_type) from contact_details group by contact_type;
