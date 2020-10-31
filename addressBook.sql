@@ -65,8 +65,107 @@ insert into address_book values
 #Ability to get number of contact persons
 select type, count(first_name) from address_book group by type;
 
-
 #UC11
 #Ability to add person to both Friend and Family
 insert into address_book values
 ('balram', 'kumar', 'mathura', 'mathura', 'uttar pradesh', '402500', '8989895989', 'balram@gmail.com', 'krishna','family');
+create table name
+(
+id INT unsigned NOT NULL,
+first_name varchar(80) not null,
+last_name varchar(80) not null,
+foreign key(id) references address_book(id)
+);
+
+create table address
+(
+id INT unsigned NOT NULL,
+city varchar(50) not null,
+state varchar(50) not null,
+zip varchar(6) not null,
+primary key(id),
+foreign key(id) references address_book(id)
+);
+
+create table address_book
+(
+id INT unsigned NOT NULL AUTO_INCREMENT,
+phone varchar(10) not null,
+email varchar(100) not null,
+primary key(id)
+);
+
+insert into address_book values
+(1,895,'laj');
+insert into address values
+(2,'daf', 'adf', 9856);
+
+select * from address;
+
+#Ability to extend employee_payroll_service to have basi_pay, deductions, taxable_pay and net_pay
+ALTER TABLE employee_payroll RENAME COLUMN salary TO basic_pay;
+ALTER TABLE employee_payroll ADD deductions Double NOT NULL AFTER basic_pay;
+ALTER TABLE employee_payroll ADD taxable_pay Double NOT NULL AFTER deductions;
+ALTER TABLE employee_payroll ADD tax Double NOT NULL AFTER taxable_pay;
+ALTER TABLE employee_payroll ADD net_pay Double NOT NULL AFTER tax;
+use address_book_service;
+show tables;
+
+#UC12
+#Ability to implement an entity-relationship model
+drop table address_book;
+create table address_book
+(
+book_id int unsigned not null,
+name varchar(30) not null,
+primary key(book_id)
+);
+
+create table person
+(
+book_id int unsigned not null,
+contact_id int not null,
+first_name varchar(20) not null,
+last_name varchar(20) not null,
+primary key(contact_id),
+foreign key(book_id) references address_book(book_id)
+);
+
+create table person_address
+(
+contact_id int not null,
+address varchar(30) not null,
+city varchar(20) not null,
+state varchar(20) not null,
+zip varchar(6),
+primary key(contact_id),
+foreign key(contact_id) references person(contact_id)
+);
+
+create table contact_details
+(
+contact_id int not null,
+phone_no varchar(10) not null,
+email varchar(30),
+contact_type varchar(20),
+foreign key(contact_id) references person(contact_id)
+);
+
+insert into address_book values
+(100, 'book1'),
+(101, 'book2');
+
+insert into person values
+(100, 111, 'Ram', 'Kumar'),
+(100, 112, 'Shyam', 'Kumar'),
+(100, 113, 'Krishna', 'Kumar');
+
+insert into person_address values
+(111, 'Street 1', 'dhanbad', 'jharkhand', '858585' ),
+(112, 'Street 2', 'ranchi', 'jharkhand', '889895'),
+(113, 'Street 3', 'jamshedpur', 'jharkhand', '789878');
+
+insert into contact_details values
+(111, '8989898989', 'ram@gmail.com', 'family'),
+(112, '8989298989', 'shyam@gmail.com', 'family'),
+(113, '8989798989', 'krishna@gmail.com', 'friend');
